@@ -86,5 +86,8 @@ resource "azurerm_key_vault_secret" "app_password" {
 
   expiration_date = "2027-01-01T00:00:00Z"
 
-  depends_on = [azurerm_key_vault_access_policy.current_user]
+  depends_on = [
+    azurerm_key_vault_access_policy.current_user,
+    azurerm_key_vault_access_policy.azurerm_client_config
+  ]
 }

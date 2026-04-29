@@ -9,8 +9,6 @@ jobs:
   plan:
     name: "Terraform Plan"
     runs-on: ubuntu-latest
-    env:
-      TF_VAR_user_object_id: ${{ vars.TF_VAR_USER_OBJECT_ID }}
     steps:
       - name: "Checkout"
         uses: actions/checkout@v4
@@ -43,6 +41,8 @@ jobs:
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          TF_VAR_user_object_id: ${{ vars.TF_VAR_USER_OBJECT_ID }}
+
 
       - name: "Upload Plan"
         uses: actions/upload-artifact@v4
@@ -72,6 +72,8 @@ jobs:
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          TF_VAR_user_object_id: ${{ vars.TF_VAR_USER_OBJECT_ID }}
+
 
       - name: "Download Plan"
         uses: actions/download-artifact@v4
