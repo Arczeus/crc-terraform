@@ -1,5 +1,5 @@
 locals {
   tags = {
-    owner = "name.surname"
+    owner = "arek.slotala"
   }
 }
